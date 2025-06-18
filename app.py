@@ -1,10 +1,11 @@
+import os
 from flask import Flask, render_template
 from pymongo import MongoClient
 from urllib.parse import quote_plus
 
 app = Flask(__name__)
-user="Mohit"
-password="Mohit@1812"
+user=os.environ.get("Mohit")
+password=os.environ.get("Mohit@1812")
 
 safe_user = quote_plus(user)
 safe_pass = quote_plus(password)
@@ -28,4 +29,4 @@ def read_chapter(title, chapter):
     return render_template("read.html", title=title, chapter=chapter, pages=pages)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
