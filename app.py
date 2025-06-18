@@ -31,7 +31,7 @@ def read_chapter(title, chapter):
 
 @app.route("/")
 def home():
-    return "<h1>✅ Manga Reader is Live</h1><p>Try accessing: /read/jujutsu_kaisen/1</p>"
+    return redirect("/read/jujutsu_kaisen/1")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
