@@ -4,8 +4,8 @@ from pymongo import MongoClient
 from urllib.parse import quote_plus
 
 app = Flask(__name__)
-user=os.environ.get("Mohit")
-password=os.environ.get("Mohit@1812")
+user=os.getenv("Mohit")
+password=os.getenv("Mohit@1812")
 
 safe_user = quote_plus(user)
 safe_pass = quote_plus(password)
