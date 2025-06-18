@@ -7,8 +7,8 @@ app = Flask(__name__)
 user=os.getenv("Mohit")
 password=os.getenv("Mohit@1812")
 
-safe_user = quote_plus(user)
-safe_pass = quote_plus(password)
+safe_user = quote_plus(str(user))
+safe_pass = quote_plus(str(password))
 
 MONGO_URI = f"mongodb+srv://{safe_user}:{safe_pass}@cluster0.jhusqxq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 client = MongoClient(MONGO_URI)
