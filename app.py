@@ -2,6 +2,7 @@ import os
 from flask import Flask, render_template
 from pymongo import MongoClient
 from urllib.parse import quote_plus
+from flask import redirect, url_for
 
 app = Flask(__name__)
 user=os.getenv("Mohit")
@@ -27,6 +28,10 @@ def read_chapter(title, chapter):
         return "Chapter not found", 404
 
     return render_template("read.html", title=title, chapter=chapter, pages=pages)
+
+@app.route("/")
+def home():
+    return "<h1>✅ Manga Reader is Live</h1><p>Try accessing: /read/jujutsu_kaisen/1</p>"
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
