@@ -6,10 +6,9 @@ from urllib.parse import quote_plus
 user="Mohit"
 password="Mohit@1812"
 
-safe_user = quote_plus(user)
-safe_pass = quote_plus(password)
 
-MONGO_URI = f"mongodb+srv://{safe_user}:{safe_pass}@cluster0.jhusqxq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+
+MONGO_URI = f"mongodb+srv://Mohit:Mohit@1812@cluster0.jhusqxq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 client = MongoClient(MONGO_URI)
 db = client["manga_reader"]
 collection = db["manga_pages"]
